@@ -10,6 +10,9 @@
     "type": "git",
     "url": "git+https://github.com/Kylir/oled-menu.git"
   },
+  "dependencies": {
+    "ssd1306-i2c-js": "1.0.2"
+  },
   "author": "Jason Forest",
   "license": "MIT",
   "bugs": {

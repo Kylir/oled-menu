@@ -16,6 +16,4 @@ display.clearScreen()      // Clear display buffer
 // display.drawString(x:number, y:number, text, size, color, layer)
 display.drawString(0, 0, 'A text on the screen')
 
-
 display.refresh()          // Write buffer in display registries
-
