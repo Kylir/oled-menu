@@ -14,6 +14,6 @@ display.clearScreen()      // Clear display buffer
 display.setFont(Font.UbuntuMono_8ptFontInfo);
 // display.drawString(x:number, y:number, text, size, color, layer)
 display.drawString(0, 0, 'A text on the screen', 1, 1, 1)
-display.drawString(8, 0, 'And another line here', 1, 1, 1)
+display.drawString(0, 8, 'And another line here', 1, 1, 1)
 
 display.refresh()          // Write buffer in display registries
