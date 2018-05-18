@@ -1,5 +1,7 @@
 
-const oled = require('./libs/oled')
+const Menu = require('./libs/Menu')
+const oled = require('./libs/oled-display')
+const encoder = require('./libs/ec11-control')
 
 // Fake menu for development
 let menus = {
@@ -33,6 +35,8 @@ process.on('SIGINT', () => {
   oled.terminateGracefully()
   process.exit()
 })
+
+let menu = new Menu(menus, oled, encoder)
 
 // oled.
 oled.drawStringLineN(0, '  here! 0')
