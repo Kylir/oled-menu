@@ -10,13 +10,11 @@ let Menu = (jsonMenus, display, control) => {
   // The following variables will keep track of where we are in the menu.
   // When we start we point at the root node and there is no parent.
   let currentNode = jsonMenus
-  let parentNode
+  let parentNode = currentNode
   let selected = 0
   
   // moves the selected up = decrease the index (or loop if more than the maximum)
-  control.on('up', () => {
-
-  })
+  control.on('up', () => {})
 
   control.on('down', () => {})
 
@@ -29,16 +27,45 @@ let Menu = (jsonMenus, display, control) => {
    * {texts: ["a", "b"], selected: 0}
    */
   this.createDisplayableMenu = () => {
-
-  }
-
-  /**
-   * Browse the menu and add back nodes and parent
-   */
-  this.addBackAndParent = () => {
-
+    let menu = {texts: [], selected: 0}
+    //Display back if not the root
+    if (currentNode.type === 'node') {
+      menu.texts.push('Back')
+    }
+    // Browse the items to extract the texts
+    currentNode.items.map((item) => {
+      menu.texts.push(item.text)
+    })
+    return menu
   }
 
 }
 
 module.exports = Menu
+
+
+/* Example of menu
+let menus = {
+  type: 'root',
+  text: '',
+  items: [
+    {
+      type: 'node',
+      text: 'Admin',
+      items: [
+        { type: 'cmd', text: 'Shutdown', cmd: 'sudo shutdown' },
+        { type: 'cmd', text: 'Restart', cmd: 'sudo restart' }
+      ]
+    },
+    {
+      type: 'node',
+      text: 'Network',
+      items: [
+        { type: 'cmd', text: 'Restart Wifi', cmd: 'ls' },
+        { type: 'cmd', text: 'No idea...', cmd: 'pwd' }
+      ]
+    },
+    { type: 'node', text: 'Empty', items: [] }
+  ]
+}
+*/

@@ -38,12 +38,4 @@ process.on('SIGINT', () => {
 
 let menu = new Menu(menus, oled, encoder)
 
-// oled.
-oled.drawStringLineN(0, '  here! 0')
-oled.drawStringLineN(1, '  here! 1')
-oled.drawStringLineN(2, '  here! 2')
-oled.drawSelectedStringLineN(3, '  here! 3')
-oled.drawStringLineN(4, '  here! 4')
-oled.drawStringLineN(5, '  here! 5')
 
-oled.refresh()
