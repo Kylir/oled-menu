@@ -15,7 +15,7 @@ let oled = {
   /**
    * Initialise the display by setting the I2C address, the font and turning on the screen.
    */
-  initDisplay: () => {
+  initDisplay () {
     display.init(I2C_BUS, I2C_ADDRESS)
     display.turnOn()
     display.clearScreen()
@@ -25,7 +25,7 @@ let oled = {
   /**
    * Draw a menu (an array of strings and a selected index) and refresh the display
    */
-  renderMenu: ({strings, selected}) => {
+  renderMenu ({strings, selected}) {
     strings.map((string, index) => {
       if (index === selected) {
         oled.drawSelectedStringLineN(index, string)
@@ -41,7 +41,7 @@ let oled = {
    * @param {*} lineNumber The line to display (from 0 to 5)
    * @param {*} text The text to display
    */
-  drawStringLineN: (lineNumber, text) => {
+  drawStringLineN (lineNumber, text) {
     display.drawString(0, 10 * lineNumber, text, 1, 1, 1)
   },
 
@@ -51,20 +51,20 @@ let oled = {
    * @param {*} lineNumber The line to display (from 0 to 5)
    * @param {*} text The text to display
    */
-  drawSelectedStringLineN: (lineNumber, text) => {
+  drawSelectedStringLineN (lineNumber, text) {
     display.fillRect(0, 10 * lineNumber, DISPLAY_WIDTH, 10, 1, 1)
     display.drawString(0, 10 * lineNumber, text, 1, 0, 1)
   },
 
   /** Refresh the display. */
-  refresh: () => {
+  refresh () {
     display.refresh()
   },
 
   /**
    * Free the resources properly (? At least it deletes the screen)
    */
-  terminateGracefully: () => {
+  terminateGracefully () {
     display.clearScreen()
     display.refresh()
     display.dispose()

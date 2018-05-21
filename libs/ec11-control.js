@@ -1,4 +1,6 @@
 
-let ec11 = {}
+const EventEmitter = require('events')
 
-module.exports = ec11
+class Ec11 extends EventEmitter {}
+
+module.exports = Ec11
